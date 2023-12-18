@@ -33,7 +33,7 @@ public class FigureService {
 
     public void rotateFigure(String name, int degree) {
         Figure figure = repository.findFigureByName(name);
-        figure.rotate(90);
+        figure.rotate(degree);
         repository.save(figure);
     }
 

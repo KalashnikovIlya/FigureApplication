@@ -1,16 +1,17 @@
 package com.example.FigureApplication.model;
 
-import java.awt.*;
+import java.awt.geom.Point2D;
+
 
 public interface FigureInterface {
 
     void rotate(int degree);
 
-    default Point rotatePoint(Point point, Point centerPoint, int degree){
+    default Point2D rotatePoint(Point2D point, Point2D centerPoint, int degree){
         double radians = Math.toRadians(degree);
-        point.move(point.x - centerPoint.x, point.y - centerPoint.y);
-        point.move((int) ((point.x * Math.cos(radians)) - ((point.y) * Math.sin(radians))), (int) ((point.x * Math.sin(radians)) + ((point.y) * Math.cos(radians))));
-        point.move(point.x + centerPoint.x, point.y + centerPoint.y);
+        point.setLocation(point.getX() - centerPoint.getX(), point.getY() - centerPoint.getY());
+        point.setLocation((point.getX() * Math.cos(radians)) - ((point.getY()) * Math.sin(radians)),(point.getX() * Math.sin(radians)) + ((point.getY()) * Math.cos(radians)));
+        point.setLocation(point.getX() + centerPoint.getX(), point.getY() + centerPoint.getY());
         return point;
     }
     default void move(){

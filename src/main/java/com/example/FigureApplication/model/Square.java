@@ -3,14 +3,13 @@ package com.example.FigureApplication.model;
 import jakarta.persistence.Entity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-
-import java.awt.*;
+import java.awt.geom.Point2D;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 public class Square extends Figure {
-    private Point a, b, c, d;
+    private Point2D.Double a, b, c, d;
 
     @Override
     public void rotate(int degree) {
