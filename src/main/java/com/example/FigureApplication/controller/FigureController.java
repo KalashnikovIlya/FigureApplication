@@ -51,9 +51,9 @@ public class FigureController {
         service.deleteFigure(name);
     }
 
-    @PostMapping("rotate/{name}")
-    public void rotate(@PathVariable String name) {
-        service.rotateFigure(name, 90);
+    @PostMapping("rotate/{name}/{degree}")
+    public void rotate(@PathVariable String name, @PathVariable int degree) {
+        service.rotateFigure(name, degree);
     }
 
 }
